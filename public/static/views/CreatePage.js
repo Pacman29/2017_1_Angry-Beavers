@@ -30,10 +30,10 @@
                 icons: [
                     {
                         attr: {
-                            src: "images/1.png",
+                            src: "images/Login_btn.png",
                             class: "img-responsive my_btn_image",
-                            onMouseOver: "this.src='images/GOOGFACE.png'",
-                            onMouseOut: "this.src='images/1.png'"
+                            onMouseOver: "this.src='images/GOODFACE.png'",
+                            onMouseOut: "this.src='images/Login_btn.png'"
                         }
                     },
                     {
@@ -59,19 +59,19 @@
                     {
                         href: "play",
                         attr: {
-                            src: "images/1.png",
+                            src: "images/Game.png",
                             class: "img-responsive my_btn_image",
-                            onMouseOver: "this.src='images/GOOGFACE.png'",
-                            onMouseOut: "this.src='images/1.png'"
+                            onMouseOver: "this.src='images/Game_hold.png'",
+                            onMouseOut: "this.src='images/Game.png'"
                         }
                     },
                     {
                         href: "score",
                         attr: {
-                            src: "images/1.png",
+                            src: "images/Score_btn.png",
                             class: "img-responsive my_btn_image",
-                            onMouseOver: "this.src='images/GOOGFACE.png'",
-                            onMouseOut: "this.src='images/1.png'"
+                            onMouseOver: "this.src='images/Score_btn_hold.png'",
+                            onMouseOut: "this.src='images/Score_btn.png'"
                         }
                     },
                     {
@@ -192,7 +192,7 @@
                 "stylesheets/parts/Border.css");
 
             this.addParts(this.body, "ScoreList", window.Border({
-                    img: "images/add_your_data.png",
+                    img: "images/Scorelist.png",
                     stylesheet: "stylesheets/parts/ScoreList.css",
                     el: window.ScoreList({},
                         [
@@ -227,7 +227,7 @@
                 "stylesheets/parts/Border.css");
 
             this.addParts(this.body, "AboutUs", window.Border({
-                    img: "images/add_your_data.png",
+                    img: "images/Dance.png",
                     stylesheet: "stylesheets/parts/AboutUs.css",
                     el: window.AboutUs({
                             text: "Ага, вот эти ребята: ",
@@ -243,7 +243,7 @@
                 "stylesheets/parts/Border.css");
 
             this.addParts(this.body, "Rules", window.Border({
-                    img: "images/add_your_data.png",
+                    img: "images/Rules_page.png",
                     stylesheet: "stylesheets/parts/Rules.css",
                     el: window.Rules({
                             text: "ну тут какие-то правила будут, наверное...",
