@@ -6,6 +6,7 @@
 
 import './Footer.css';
 import pugFooter from './Footer.pug';
+import NodeDecorator from '../../NodeDecorator';
 
 const TEXT = "Copyright © Angry Beavers. All rights reserved.";
 
@@ -15,7 +16,7 @@ const Footer = function () {
     footer.innerHTML = pugFooter({
         text: TEXT
     });
-    return footer;
+    return new NodeDecorator(footer,true,true,{});
 };
 
 export default Footer;

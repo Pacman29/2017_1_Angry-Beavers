@@ -23,9 +23,7 @@ class CreatePage {
             return CreatePage.__instance;
         }
         this.body = (document.getElementsByTagName('body'))[0];
-        this.links = [];
         this.parts = new Map();
-        this.links.push();
 
         this.addParts(this.body, "AppName", AppName());
         this.addParts(this.body, "UserHeader", UserHeader());
@@ -39,10 +37,10 @@ class CreatePage {
         this.addParts(this.body, "Footer", Footer());
     }
 
-    addParts(parent, name, elem) {
-        this.parts.set(name, elem);
-        elem.hidden = true;
-        parent.appendChild(elem);
+    addParts(parent, name, NDecorate) {
+        this.parts.set(name, NDecorate);
+        NDecorate.node.hidden = true;
+        parent.appendChild(NDecorate.node);
     }
 
     getParts() {

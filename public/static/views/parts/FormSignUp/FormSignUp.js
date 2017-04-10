@@ -7,6 +7,7 @@
 import BorderConstruct from '../../constructs/BorderConstruct/BorderConstruct';
 import FormConsruct from '../../constructs/FormConstruct/FormConstruct';
 import pugFormSignUp from './FormSignUp.pug';
+import NodeDecorator from '../../NodeDecorator';
 
 const RIGHT_IMG = "images/add_your_data.png";
 const TITLE = "Регистрация";
@@ -64,9 +65,20 @@ const FormSignUp = function () {
             ],
         }
     });
-    return BorderConstruct({
+    return new NodeDecorator(BorderConstruct({
         img: RIGHT_IMG,
         el: div
+    }),true,false,{
+        inputs: {
+            emailInput: document.getElementById(EMAIL_FIELD.id),
+            loginInput: document.getElementById(LOGIN_FIELD.id),
+            passwordInput: document.getElementById(PASSRORD_FIELD.id),
+            passwordRepeatInput: document.getElementById(PASSRORD_REPEAT_FIELD.id)
+        },
+        buttons: {
+            signUp: document.getElementById(SIGN_UP_BUTTON.id),
+            signIn: document.getElementById(SIGN_IN_BUTTON.id)
+        }
     });
 };
 

@@ -13,16 +13,21 @@ class MenuGameController extends View {
         }
         super(opt);
         MenuGameController.__instance = this;
+
+        this.controller_parts.push(this.page_parts.get("UserHeader"));
+        this.controller_parts.push(this.page_parts.get("MenuGame"));
+        this.controller_parts.push(this.page_parts.get("Footer"));
+
         this.addListener();
     }
 
     addListener() {
-        this.page_parts.get("UserHeader").querySelector(".userheader-appname").addEventListener('click', event => {
+        this.page_parts.get("UserHeader").controlls.appname.addEventListener('click', event => {
             event.preventDefault();
             this.router.go("/menu");
         });
 
-        document.getElementById("userheader_logout").addEventListener('click', event => {
+        this.page_parts.get("UserHeader").controlls.logout.addEventListener('click', event => {
             event.preventDefault();
             this.session.logout()
                 .then(() => {
@@ -32,19 +37,22 @@ class MenuGameController extends View {
                     alert(e);
                 });
         });
-        document.getElementById("menuGame_play").addEventListener('click', event => {
+
+        let menu_controls = this.page_parts.get("MenuGame").controlls;
+
+        menu_controls.buttons.play.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/play');
         });
-        document.getElementById("menuGame_score").addEventListener('click', event => {
+        menu_controls.buttons.score.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/scorelist');
         });
-        document.getElementById("menuGame_aboutUs").addEventListener('click', event => {
+        menu_controls.buttons.aboutUs.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/aboutus');
         });
-        document.getElementById("menuGame_rules").addEventListener('click', event => {
+        menu_controls.buttons.rules.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/rules');
         });
@@ -56,23 +64,25 @@ class MenuGameController extends View {
     }
 
     show() {
-        this.page_parts.get("UserHeader").hidden = false;
         if (!this.session.isAuth) {
             this.router.go('/signin');
         }
         else {
-            this.page_parts.get("MenuGame").hidden = false;
+            this.page_parts.get("UserHeader").hidden(false);
+            this.page_parts.get("MenuGame").hidden(false);
 
-            document.getElementById('userheader_login').innerHTML = this.session.user.login;
-            document.getElementById('userheader_score').innerHTML = this.session.user.score;
+            this.page_parts.get("UserHeader").controlls.login.innerHTML = this.session.user.login;
+            this.page_parts.get("UserHeader").controlls.score.innerHTML = this.session.user.score;
+
+            this.page_parts.get("Footer").hidden(false);
         }
-        this.page_parts.get("Footer").hidden = false;
+
     }
 
     hide() {
-        this.page_parts.get("UserHeader").hidden = true;
-        this.page_parts.get("MenuGame").hidden = true;
-        this.page_parts.get("Footer").hidden = true;
+        this.controller_parts.forEach(iter => {
+            iter.hidden(true);
+        });
     }
 }
 

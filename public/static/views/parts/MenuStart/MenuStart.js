@@ -7,6 +7,7 @@
 import pugMenuStart from './MenuStart.pug';
 
 import MenuConstruct from '../../constructs/MenuConstruct/MenuConstruct';
+import NodeDecorator from '../../NodeDecorator';
 
 const ITEMS = [
     {
@@ -31,7 +32,11 @@ const MenuStart = function MenuStart() {
     div.innerHTML = pugMenuStart({
         items: ITEMS
     });
-    return div;
+    return new NodeDecorator(div,true,false,{
+        signIn: document.getElementById("menuStart_signIn"),
+        aboutUs: document.getElementById("menuStart_aboutUs"),
+        rules: document.getElementById("menuStart_rules")
+    });
 };
 
 export default MenuStart;

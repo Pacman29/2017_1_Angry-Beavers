@@ -12,11 +12,16 @@ class View {
         this.session = options.session;
         this.user = options.user;
         this.page_parts = options.page.getParts();
+        this.controller_parts = [];
 
         if (options.createElement) {
             this.tagName = options.tagName || 'div';
             this._el = document.createElement(this.tagName);
         }
+    }
+
+    get checker_user(){
+        return this.session.isAuth ? "isforAuth" : "isforNoAuth";
     }
 
     /**

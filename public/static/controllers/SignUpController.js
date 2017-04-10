@@ -13,12 +13,17 @@ class SignUpController extends View {
         }
         super(opt);
         SignUpController.__instance = this;
+
+        this.controller_parts.push(this.page_parts.get("AppName"));
+        this.controller_parts.push(this.page_parts.get("SignUp"));
+        this.controller_parts.push(this.page_parts.get("Footer"));
+
         this.addListener();
     }
 
     addListener() {
 
-        this.page_parts.get("AppName").querySelector(".appname").addEventListener('click', event => {
+        this.page_parts.get("AppName").controlls.appname.addEventListener('click', event => {
             event.preventDefault();
             if(this.session.isAuth){
                 this.router.go("/menu");
@@ -28,7 +33,9 @@ class SignUpController extends View {
 
         });
 
-        document.getElementById('formSignUp_signUpBtn').addEventListener('click', event => {
+        let form_btns = this.page_parts.get("SignUp").controlls.buttons;
+
+        form_btns.signUp.addEventListener('click', event => {
             event.preventDefault();
 
             let credentials = this.validateForm();
@@ -42,17 +49,18 @@ class SignUpController extends View {
                     });
             }
         });
-        document.getElementById('formSignUp_signInBtn').addEventListener('click', event => {
+        form_btns.signIn.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/signin')
         });
     }
 
     validateForm() {
-        let login = document.getElementById('formSignUp_loginInput').value;
-        let passw = document.getElementById('formSignUp_passwordInput').value;
-        let passwRepeat = document.getElementById('formSignUp_passwordRepeatInput').value;
-        let email = document.getElementById('formSignUp_emailInput').value;
+        let form_inpts = this.page_parts.get("SignUp").controlls.inputs;
+        let login = form_inpts.loginInput.value;
+        let passw = form_inpts.passwordInput.value;
+        let passwRepeat = form_inpts.passwordRepeatInput.value;
+        let email = form_inpts.emailInput.value;
 
         // email check
         if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)) {
@@ -92,19 +100,19 @@ class SignUpController extends View {
     }
 
     show() {
-        this.page_parts.get("AppName").hidden = false;
+        this.page_parts.get("AppName").hidden(false);
         if (this.session.isAuth) {
             this.router.go('/');
         } else {
-            this.page_parts.get("SignUp").hidden = false;
+            this.page_parts.get("SignUp").hidden(false);
         }
-        this.page_parts.get("Footer").hidden = false;
+        this.page_parts.get("Footer").hidden(false);
     }
 
     hide() {
-        this.page_parts.get("AppName").hidden = true;
-        this.page_parts.get("SignUp").hidden = true;
-        this.page_parts.get("Footer").hidden = true;
+        this.controller_parts.forEach(iter => {
+            iter.hidden(true);
+        });
     }
 }
 

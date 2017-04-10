@@ -6,11 +6,14 @@
 
 import './AppName.css';
 import pugAppName from './AppName.pug';
+import NodeDecorator from '../../NodeDecorator';
 
 const AppName = function () {
     let container = document.createElement('div');
     container.innerHTML = pugAppName();
-    return container;
+    return new NodeDecorator(container,true,false,{
+        appname: container.querySelector(".appname")
+    });
 };
 
 export default AppName;

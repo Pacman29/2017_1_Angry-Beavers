@@ -8,6 +8,7 @@ import './ScoreList.css';
 import pugScoreList from './ScoreList.pug';
 
 import BorderConstruct from '../../constructs/BorderConstruct/BorderConstruct';
+import NodeDecorator from '../../NodeDecorator';
 
 const RIGHT_IMG = "images/Scorelist.png";
 const PLAYERS = [
@@ -41,9 +42,11 @@ const ScoreList = function () {
         player: YOU
     });
 
-    return BorderConstruct({
+    return new NodeDecorator(BorderConstruct({
         el: div,
         img: RIGHT_IMG
+    }),false,true,{
+
     });
 };
 

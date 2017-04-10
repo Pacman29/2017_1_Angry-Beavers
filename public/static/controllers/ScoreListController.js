@@ -12,6 +12,11 @@ class ScoreListController extends View {
         }
         super(opt);
         ScoreListController.__instance = this;
+
+        this.controller_parts.push(this.page_parts.get("UserHeader"));
+        this.controller_parts.push(this.page_parts.get("ScoreList"));
+        this.controller_parts.push(this.page_parts.get("Footer"));
+
         this.addListener();
     }
 
@@ -26,21 +31,21 @@ class ScoreListController extends View {
         if (!this.session.isAuth) {
             this.router.go('/signin');
         } else {
-            this.page_parts.get("UserHeader").hidden = false;
-            this.page_parts.get("ScoreList").hidden = false;
+            this.controller_parts.forEach(iter => {
+                iter.hidden(false);
+            });
         }
 
         /*
          TODO :: Здесь нужно заполнить лидерборд, тут надо просто подумать
          */
 
-        this.page_parts.get("Footer").hidden = false;
     }
 
     hide() {
-        this.page_parts.get("UserHeader").hidden = true;
-        this.page_parts.get("ScoreList").hidden = true;
-        this.page_parts.get("Footer").hidden = true;
+        this.controller_parts.forEach(iter => {
+            iter.hidden(true);
+        });
     }
 }
 

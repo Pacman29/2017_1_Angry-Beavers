@@ -13,11 +13,16 @@ class MenuStartController extends View {
         }
         super(opt);
         MenuStartController.__instance = this;
+
+        this.controller_parts.push(this.page_parts.get("AppName"));
+        this.controller_parts.push(this.page_parts.get("MenuStart"));
+        this.controller_parts.push(this.page_parts.get("Footer"));
+
         this.addListener();
     }
 
     addListener() {
-        this.page_parts.get("AppName").querySelector(".appname").addEventListener('click', event => {
+        this.page_parts.get("AppName").controlls.appname.addEventListener('click', event => {
             event.preventDefault();
             if(this.session.isAuth){
                 this.router.go("/menu");
@@ -27,15 +32,19 @@ class MenuStartController extends View {
 
         });
 
-        document.getElementById('menuStart_signIn').addEventListener('click', event => {
+        let menu_controls = this.page_parts.get("MenuStart").controlls;
+
+        debugger;
+
+        menu_controls.signIn.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/signin');
         });
-        document.getElementById('menuStart_aboutUs').addEventListener('click', event => {
+        menu_controls.aboutUs.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/aboutus');
         });
-        document.getElementById('menuStart_rules').addEventListener('click', event => {
+        menu_controls.rules.addEventListener('click', event => {
             event.preventDefault();
             this.router.go('/rules');
         });
@@ -46,20 +55,22 @@ class MenuStartController extends View {
     }
 
     show() {
-        this.page_parts.get("AppName").hidden = false;
+
         if (this.session.isAuth) {
             this.router.go('/');
         }
         else {
-            this.page_parts.get("MenuStart").hidden = false;
+            this.controller_parts.forEach(iter => {
+                iter.hidden(false);
+            })
         }
-        this.page_parts.get("Footer").hidden = false;
+
     }
 
     hide() {
-        this.page_parts.get("AppName").hidden = true;
-        this.page_parts.get("MenuStart").hidden = true;
-        this.page_parts.get("Footer").hidden = true;
+        this.controller_parts.forEach(iter => {
+            iter.hidden(true);
+        })
     }
 }
 

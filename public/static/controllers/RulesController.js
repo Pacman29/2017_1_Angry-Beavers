@@ -12,11 +12,17 @@ class RulesController extends View {
         }
         super(opt);
         RulesController.__instance = this;
+
+        this.controller_parts.push(this.page_parts.get("UserHeader"));
+        this.controller_parts.push(this.page_parts.get("AppName"));
+        this.controller_parts.push(this.page_parts.get("Rules"));
+        this.controller_parts.push(this.page_parts.get("Footer"));
+
         this.addListener();
     }
 
     addListener() {
-        this.page_parts.get("AppName").querySelector(".appname").addEventListener('click', event => {
+        this.page_parts.get("AppName").controlls.appname.querySelector(".appname").addEventListener('click', event => {
             event.preventDefault();
             if (this.session.isAuth) {
                 this.router.go("/menu");
@@ -32,23 +38,17 @@ class RulesController extends View {
     }
 
     show() {
-        if (this.session.isAuth) {
-            this.page_parts.get("UserHeader").hidden = false;
-        } else {
-            this.page_parts.get("AppName").hidden = false;
-        }
-        this.page_parts.get("Rules").hidden = false;
-        this.page_parts.get("Footer").hidden = false;
+        this.controller_parts.forEach(iter => {
+            if(iter[this.checker_user].call()){
+                iter.hidden(false);
+            }
+        });
     }
 
     hide() {
-        if (this.session.isAuth) {
-            this.page_parts.get("UserHeader").hidden = true;
-        } else {
-            this.page_parts.get("AppName").hidden = true;
-        }
-        this.page_parts.get("Rules").hidden = true;
-        this.page_parts.get("Footer").hidden = true;
+        this.controller_parts.forEach(iter => {
+            iter.hidden(true);
+        });
     }
 
 }

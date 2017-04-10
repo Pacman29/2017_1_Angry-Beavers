@@ -7,6 +7,7 @@
 import './AboutUs.css';
 import BorderConstruct from '../../constructs/BorderConstruct/BorderConstruct';
 import pugAboutUs from './AboutUs.pug';
+import NodeDecorator from '../../NodeDecorator';
 
 const RIGHT_IMG = "images/Dance.png";
 const HEAD_TEXT = "Ага, вот эти ребята: ";
@@ -37,10 +38,10 @@ const AboutUs = function () {
         headText: HEAD_TEXT
     });
 
-    return BorderConstruct({
+    return new NodeDecorator(BorderConstruct({
         el: div,
         img: RIGHT_IMG
-    });
+    }),true,true,{});
 };
 
 export default AboutUs;

@@ -7,6 +7,7 @@
 import pugMenuGame from './MenuGame.pug';
 
 import MenuConstruct from '../../constructs/MenuConstruct/MenuConstruct';
+import NodeDecorator from '../../NodeDecorator';
 
 const ITEMS = [
     {
@@ -36,7 +37,14 @@ const MenuGame = function MenuStart() {
     div.innerHTML = pugMenuGame({
         items: ITEMS
     });
-    return div;
+    return new NodeDecorator(div,false,true,{
+        buttons: {
+            play: document.getElementById(ITEMS[0].id),
+            score: document.getElementById(ITEMS[0].id),
+            aboutUs: document.getElementById(ITEMS[0].id),
+            rules: document.getElementById(ITEMS[0].id)
+        }
+    });
 };
 
 export default MenuGame;

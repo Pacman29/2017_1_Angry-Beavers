@@ -14,7 +14,7 @@ class Session {
         options = options || {};
 
         this._host = options.host || DEFAULT_HOST;
-        this._user = null;
+        this._user = {};
 
         this._cookies = '';
     }
