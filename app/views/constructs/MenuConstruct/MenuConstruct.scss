@@ -1,0 +1,19 @@
+$green: #42A045;
+$gray: #88C1D8;
+
+.menuconstruct {
+    &__image {
+        cursor: pointer;
+        border-radius: 12px;
+        border: 8px solid black;
+        margin: 10px auto;
+    }
+
+    &__mainimage {
+        cursor: pointer;
+        border-radius: 12px;
+        border: 4px solid black;
+        box-shadow: 0 0 0 5px $green, 0 0 0 9px black;
+        margin: 10px auto;
+    }
+}

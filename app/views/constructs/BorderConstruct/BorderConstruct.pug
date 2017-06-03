@@ -1,0 +1,15 @@
+//
+   Created by ed on 25.03.17.
+
+div.container.border-horizontal
+    div.row
+        div.col-sm-2.visible-md.visible-lg
+        div.col-sm-12.col-md-6
+            if title
+                h3.border-horizontal__title= title
+            div#inside_block
+                div!= element.outerHTML
+        div.col-sm-1.visible-md.visible-lg
+        div.col-sm-3.visible-md.visible-lg
+            div.row(align='right')
+                img.img-responsive.border-horizontal__image(src=img.toString())

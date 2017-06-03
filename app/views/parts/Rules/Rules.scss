@@ -1,0 +1,15 @@
+$font: DigitalStrip;
+
+.rules{
+    &__title {
+        font-family: $font;
+    }
+
+    p {
+        text-align: left;
+        font-family: $font;
+        font-size: medium;
+        text-indent: 20px;
+    }
+}
+

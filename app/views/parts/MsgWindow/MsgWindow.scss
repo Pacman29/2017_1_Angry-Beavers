@@ -1,0 +1,47 @@
+.blockscreen {
+  position: fixed;
+  background: rgba(0, 0, 0, .4);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.alertmsg , .confirmmsg , .entrymsg, .rulesmsg{
+  position: fixed;
+  z-index: 11;
+  background: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid #a1a1a1;
+  box-shadow: 0 0 10px #444;
+  font-family: DigitalStrip;
+  text-align: center;
+  border-radius: 12px;
+  border: 3px solid black;
+
+  &__msg{
+    margin-top: 4px;
+  }
+
+  &__button {
+    border-radius: 12px;
+    border: 2px solid black;
+    font-size: medium;
+    color: white;
+    background-color: #42A045;
+    margin: 2px;
+    width: 35%;
+  }
+
+  &__button:hover {
+    background-color: #3f8b42;
+  }
+}
+
+.entrymsg__msg{
+  margin-top: 12px;
+  text-align: left;
+  margin-left: 60px;
+}

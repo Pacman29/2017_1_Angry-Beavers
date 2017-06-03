@@ -1,0 +1,10 @@
+//
+   Created by ed on 10.03.17.
+
+mixin member_view(member)
+    div
+        a(href=member.link)= member.name
+
+div.aboutus
+    each member in members
+        +member_view(member)

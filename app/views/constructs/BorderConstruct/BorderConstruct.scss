@@ -1,0 +1,17 @@
+.border-horizontal {
+    text-align: right;
+    border-radius: 12px;
+    border: 8px solid black;
+    margin: 10px auto;
+    background-color: white;
+
+    &__title {
+        text-align: center;
+        font-family: DigitalStrip;
+    }
+
+    &__image {
+        border-radius: 3.3px;
+        vertical-align: bottom;
+    }
+}

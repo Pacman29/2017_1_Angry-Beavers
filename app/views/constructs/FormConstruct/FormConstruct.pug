@@ -1,0 +1,22 @@
+//
+   Created by ed on 28.03.17.
+
+mixin formConstruct(form)
+    form.formconstruct__form
+        div.formconstruct-fields
+            each field in form.fields
+                div.formconstruct__group(align="middle")
+                    if field.name !== undefined
+                        label.input-form-label(for=field.id)= field.name
+                    input.formconstruct__inputstext(
+                    id=field.id
+                    placeholder=field.placeholder
+                    type=field.type,
+                    required=field.required
+                    )
+        div.formconstruct-buttons(align="middle")
+            each button in form.buttons
+                button.formconstruct-buttons__button(
+                type=button.type
+                id=button.id
+                )= button.text

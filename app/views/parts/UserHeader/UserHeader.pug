@@ -1,0 +1,48 @@
+//
+   Created by ed on 07.04.17.
+
+div.container
+    div.row.visible-md.visible-lg
+        div.col-sm-3.visible-lg
+            div.row.userheader-appname
+                div.col-xs-6
+                    h1
+                        a.userheader-appname.userheader-appname-brand.userheader-appname-brand__joking= 'Joking'
+                div.col-xs-6
+                    h1
+                        a.userheader-appname.userheader-appname-brand.userheader-appname-brand__hazard= 'Hazard'
+        div.col-sm-3.visible-md
+            div.row.userheader-appname
+                div.col-xs-6(align='right')
+                    h1
+                        a.userheader-appname.userheader-appname-brand.userheader-appname-brand__joking(style='text-align: right')= 'J'
+                div.col-xs-6(align='left')
+                    h1
+                        a.userheader-appname.userheader-appname-brand.userheader-appname-brand__hazard(style='text-align: left')= 'H'
+        div.col-sm-8
+            div.row
+                h1.col-xs-6.userheader-login
+                h1.col-xs-6.userheader-score-group
+                    | Score:
+                    |
+                    small.userheader-score
+        div(align="right").col-sm-1
+            image(src=exiticon).userhead.userheader-logout
+    div.row.visible-xs.visible-sm
+        div.row
+            div.col-xs-9
+                div.row.userheader-appname
+                    div.col-xs-6
+                        h1
+                            a.userheader-appname.userheader-appname-brand.userheader-appname-brand__joking= 'Joking'
+                    div.col-xs-6
+                        h1
+                            a.userheader-appname.userheader-appname-brand.userheader-appname-brand__hazard= 'Hazard'
+            div(align="right").col-xs-3
+                image(src=exiticon).userhead.userheader-logout
+        div.row
+            h1.col-xs-6.userheader-login
+            h1.col-xs-6.userheader-score-group
+                | Score:
+                |
+                small.userheader-score

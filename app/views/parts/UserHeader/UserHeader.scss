@@ -1,0 +1,58 @@
+$green: #42A045;
+$gray: #88C1D8;
+$font: DigitalStrip;
+
+.userheader{
+    &-login {
+        text-align: center;
+    }
+
+    &-logout {
+        height: 50px;
+        width: auto;
+        cursor: pointer;
+        margin-top: 15px;
+        margin-right: 10px;
+    }
+
+    &-login {
+        font-family: $font;
+    }
+
+    &-score-group {
+        font-family: $font;
+    }
+
+    &-appname {
+        &-brand {
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            font-size: 42px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            text-shadow: -0 0 1px #000000, 0 -4px 1px #000000, -0 4px 1px #000000, 0 4px 1px #000000, -4px -0 1px #000000, 4px -0 1px #000000, -4px 0 1px #000000, 4px 0 1px #000000, -1px -4px 1px #000000, 1px -4px 1px #000000, -1px 4px 1px #000000, 1px 4px 1px #000000, -4px -1px 1px #000000, 4px -1px 1px #000000, -4px 1px 1px #000000, 4px 1px 1px #000000, -2px -4px 1px #000000, 2px -4px 1px #000000, -2px 4px 1px #000000, 2px 4px 1px #000000, -4px -2px 1px #000000, 4px -2px 1px #000000, -4px 2px 1px #000000, 4px 2px 1px #000000, -3px -4px 1px #000000, 3px -4px 1px #000000, -3px 4px 1px #000000, 3px 4px 1px #000000, -4px -3px 1px #000000, 4px -3px 1px #000000, -4px 3px 1px #000000, 4px 3px 1px #000000, -4px -4px 1px #000000, 4px -4px 1px #000000, -4px 4px 1px #000000, 4px 4px 1px #000000, -4px -4px 1px #000000, 4px -4px 1px #000000, -4px 4px 1px #000000, 4px 4px 1px #000000;
+
+            &__joking {
+                text-decoration: none;
+                color: $gray;
+            }
+
+            &__joking:hover {
+                text-decoration: none;
+                color: $green;
+            }
+
+            &__hazard {
+                text-decoration: none;
+                color: $green;
+            }
+
+            &__hazard:hover {
+                text-decoration: none;
+                color: $gray;
+            }
+        }
+    }
+}

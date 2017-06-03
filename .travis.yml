@@ -1,0 +1,22 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - 7
+branches:
+  only:
+  - master
+  -  development
+
+services:
+  - docker
+
+instal: true
+
+before_script:
+  - npm run generate_bundle
+
+script:
+  - docker login --username=_ --password=$(echo $API_KEY) registry.heroku.com
+  - docker build -t registry.heroku.com/jokinghazard/web .
+  - docker push registry.heroku.com/jokinghazard/web

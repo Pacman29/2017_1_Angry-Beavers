@@ -39,3 +39,6 @@ jspm_packages
 
 # Pug files
 *.pug.js
+
+#bundle
+public/static/bundle.js

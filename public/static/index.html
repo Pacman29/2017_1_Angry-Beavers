@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.7">
     <title>Joking Hazard</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css">
     <style>
         @font-face {
             font-family: DigitalStrip;
@@ -11,47 +11,7 @@
         }
     </style>
 </head>
-<body>
-    <script src="api/api.js"></script>
-    <script src="api/error.js"></script>
-
-    <script src="modules/view.js"></script>
-
-    <!-- гребаные костыли не трогать! сначала должен быть *.pug.js, затем *.js ПОПАРНО! !-->
-
-    <script src="views/parts/Footer/Footer.pug.js"></script>
-    <script src="views/parts/Footer/Footer.js"></script>
-
-    <script src="views/parts/ScoreList/ScoreList.pug.js"></script>
-    <script src="views/parts/ScoreList/ScoreList.js"></script>
-
-    <script src="views/parts/Rules/Rules.pug.js"></script>
-    <script src="views/parts/Rules/Rules.js"></script>
-    
-    <script src="views/parts/AboutUs/AboutUs.pug.js"></script>
-    <script src="views/parts/AboutUs/AboutUs.js"></script>
-    <script src="views/parts/ButtonConstruct.js"></script>
-    <script src="views/parts/InputConstruct.js"></script>
-    <script src="views/parts/IconConstruct.js"></script>
-    <script src="views/parts/FormConstruct.js"></script>
-
-
-    <script src="views/parts/Border.js"></script>
-    <script src="views/parts/AppName.js"></script>
-    <script src="views/parts/Menu.js"></script>
-    <script src="views/CreatePage.js"></script>
-
-    <script src="modules/route.js"></script>
-    <script src="modules/router.js"></script>
-    <script src="models/user.js"></script>
-
-    <script src="controllers/RulesController.js"></script>
-    <script src="controllers/AboutUsController.js"></script>
-    <script src="controllers/ScorelistController.js"></script>
-    <script src="controllers/MenuController.js"></script>
-    <script src="controllers/StartPageController.js"></script>
-    <script src="controllers/SignInController.js"></script>
-    <script src="controllers/SignUpController.js"></script>
-    <script src="main.js"></script>
+<body style="background-color: #fbfbfb;">
+<script src="/bundle.js"></script>
 </body>
 </html>

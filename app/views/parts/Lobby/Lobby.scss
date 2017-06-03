@@ -1,0 +1,10 @@
+$font: DigitalStrip;
+.lobby{
+    &__title {
+        font-family: $font;
+    }
+
+    &__users {
+        font-family: $font;
+    }
+}
